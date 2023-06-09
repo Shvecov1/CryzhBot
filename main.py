@@ -1,15 +1,17 @@
-
 import urllib.request
 import telebot
 import os
+from dotenv import load_dotenv
+
 import cv2
 import urllib.request
 import speech_recognition as sr
 from pydub import AudioSegment
 from telebot import types
+load_dotenv()
+os.getenv("TELEGRAM_BOT_KEY")
+bot = telebot.TeleBot(os.getenv("TELEGRAM_BOT_KEY"))
 
-TOKEN = '6255032320:AAH3gCZv1NfR8mcqbKQb4h_dLbw1Sjbqs8M'
-bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(content_types=['video_note'])
 def handle_video_note(message):
